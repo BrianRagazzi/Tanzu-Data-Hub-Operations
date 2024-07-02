@@ -69,3 +69,13 @@ Paste this into the text box
 ![Image](./images/installer5.png)
 
 Click **Next**
+
+6. Under **Certificate**, provide a wildcard subdomain you own and an environment ID.  I don't know what the Ingress Controller Ip and DNS fields are for.  Make a note of the Control Plane URL.
+
+![Image](./images/installer6.png)
+
+7. For SMTP Server Details, check **Skip SMTP Details** for now, click **Next**
+
+8. Under **SRE Login Credentials**, enter credentials for the first user (What is an SRE?)
+
+![Image](./images/installer6.png)
