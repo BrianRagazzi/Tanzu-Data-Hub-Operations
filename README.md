@@ -22,5 +22,8 @@ Installing, configuring and working with TDH
 1. Run ```tdh-installer install --ui``` to start installer in UI mode
 ![Image](./images/installer1.png)
 
-2. We'll be installing on an existing TKGS cluster, so select *Tanzu Kubernetes Grid* as the Provider and for ease of install, select and provide the vCenter Credentials, then click *Validate* & *Next*:
+2. We'll be installing on an existing TKGS cluster, so under Cluster Credentials, select *Tanzu Kubernetes Grid* as the Provider and for ease of install, select and provide the vCenter Credentials, then click *Validate* & *Next*:
 ![Image](./images/installer2.png)
+
+3. Under Cluster Details, select the vSphere Namespace where the target cluster resides, then select the cluster.  Provide the FQDN of the Supervisor ClusterAPI and the storage class name to use.  (Not sure why this isn't detectable and the default SC isn't used)
+![Image](./images/installer3.png)
