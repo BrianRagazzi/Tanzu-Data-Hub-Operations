@@ -37,3 +37,35 @@ Installing, configuring and working with TDH
 4. Under **Control Plane Size**, notice how huge even *Tiny* is.  Select the appropriate size - I'm going with **Tiny**
 
 ![Image](./images/installer4.png)
+
+5. Under **Image Registry**, Select *Non Air Gapped* and *Harbor*
+
+Copy/Edit
+```
+{
+    "auths": {
+        "base_url_harbor": {
+            "username": "",
+            "password": "",
+            "auth": "username:password in base64 encoded form"
+        }
+    }
+}
+```
+
+Paste this into the text box
+```
+{
+    "auths": {
+        "https://harbor.lab.brianragazzi.com": {
+            "username": "harboradmin@ragazzilab.com",
+            "password": "PASSWORD",
+            "auth": "aGFyYm9yYWRtaW5AcmFnYXp6aWxhYi5jb218UEFTU1dPUkQK"
+        }
+    }
+}
+```
+
+![Image](./images/installer5.png)
+
+Click **Next**
