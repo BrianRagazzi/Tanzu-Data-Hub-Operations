@@ -31,7 +31,7 @@ spec:
     #describe the cluster control plane
     controlPlane:
       #number of control plane nodes; integer 1 or 3
-      replicas: 4
+      replicas: 3
     #describe the cluster worker nodes
     workers:
       #specifies parameters for a set of worker nodes in the topology
@@ -41,7 +41,7 @@ spec:
           #user-defined name of the node pool; string
           name: md-0
           #number of worker nodes in this pool; integer 0 or more
-          replicas: 2
+          replicas: 4
           variables:
             overrides:
             - name: vmClass
