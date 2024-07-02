@@ -15,4 +15,4 @@ Installing, configuring and working with TDH
 * run ``sudo install tdh-darwin-amd64 /usr/local/bin/tdh-installer```
 * check version ```tdh-installer version```
 * NOTE - mac will complain about it being downloaded from the internet, you'll have to allow it to run under Settings|Privacy & Security
-![Version](./images/tdhinstallerversion.png)
+![Image](./images/tdhinstallerversion.png)
