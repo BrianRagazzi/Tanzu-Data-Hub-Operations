@@ -5,6 +5,9 @@ Installing, configuring and working with TDH
 # Installing on TKGS
 ## Pre-reqs - as on 7/2/24
 * Kubernetes - suggests TKR v1.26.5
+  * make sure the cluster can provide ~40 CPU
+  * >50GB available in /etc/containerd
+  * example v1beta1 cluster [here](./data1.yaml)
 * Image Registry
 * Storage Class supporting at least RWO
 * workstation with access to target cluster (Windows, Mac, Linux)

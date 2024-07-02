@@ -1,0 +1,70 @@
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+#define the cluster
+metadata:
+  #user-defined name of the cluster; string
+  name: data1
+  #kubernetes namespace for the cluster; string
+  namespace: test
+#define the desired state of cluster
+spec:
+  #specify the cluster network; required, there is no default
+  clusterNetwork:
+    #network ranges from which service VIPs are allocated
+    services:
+      #ranges of network addresses; string array
+      #CAUTION: must not overlap with Supervisor
+      cidrBlocks: ["198.51.100.0/12"]
+    #network ranges from which Pod networks are allocated
+    pods:
+      #ranges of network addresses; string array
+      #CAUTION: must not overlap with Supervisor
+      cidrBlocks: ["192.0.2.0/16"]
+    #domain name for services; string
+    serviceDomain: "cluster.local"
+  #specify the topology for the cluster
+  topology:
+    #name of the ClusterClass object to derive the topology
+    class: tanzukubernetescluster
+    #kubernetes version of the cluster; format is TKR NAME
+    version: v1.26.5---vmware.2-fips.1-tkg.1
+    #describe the cluster control plane
+    controlPlane:
+      #number of control plane nodes; integer 1 or 3
+      replicas: 4
+    #describe the cluster worker nodes
+    workers:
+      #specifies parameters for a set of worker nodes in the topology
+      machineDeployments:
+        #node pool class used to create the set of worker nodes
+        - class: node-pool
+          #user-defined name of the node pool; string
+          name: md-0
+          #number of worker nodes in this pool; integer 0 or more
+          replicas: 2
+          variables:
+            overrides:
+            - name: vmClass
+              value: tdh-worker #10CPU, 16GB
+            - name: storageClass
+              value: tanzu
+            - name: nodePoolVolumes
+              value:
+              - capacity:
+                  storage: 50G
+                mountPath: /etc/containerd
+                name: containerd
+                storageClass: tanzu
+    #customize the cluster
+    variables:
+      #virtual machine class type and size for cluster nodes
+      - name: vmClass
+        value: best-effort-medium
+      #persistent storage class for cluster nodes
+      - name: storageClass
+        value: tanzu
+      # default storageclass for control plane and worker node pools
+      - name: defaultStorageClass
+        value: tanzu
+      - name: nodePoolVolumes
+        value: []
