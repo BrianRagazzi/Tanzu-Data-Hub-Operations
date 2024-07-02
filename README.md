@@ -2,7 +2,7 @@
 Installing, configuring and working with TDH
 
 
-# Installing
+# Installing on TKGS
 ## Pre-reqs - as on 7/2/24
 * Kubernetes - suggests TKR v1.26.5
 * Image Registry
@@ -19,4 +19,8 @@ Installing, configuring and working with TDH
 ![Image](./images/tdhinstaller-version.png)
 
 ## Installer
-1. Run ```
+1. Run ```tdh-installer install --ui``` to start installer in UI mode
+![Image](./images/installer1.png)
+
+2. We'll be installing on an existing TKGS cluster, so select *Tanzu Kubernetes Grid* as the Provider and for ease of install, select and provide the vCenter Credentials, then click *Validate* & *Next*:
+![Image](./images/installer2.png)
